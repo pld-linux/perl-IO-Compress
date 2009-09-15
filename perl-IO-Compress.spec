@@ -7,7 +7,7 @@
 %define	pnam	Compress
 Summary:	IO::Compress - Base Class for IO::Compress modules
 Summary(pl.UTF-8):	IO::Compress - klasa bazowa dla modułów IO::Compress
-Name:		perl-IO-Compress-Base
+Name:		perl-IO-Compress
 Version:	2.021
 Release:	1
 # same as perl
