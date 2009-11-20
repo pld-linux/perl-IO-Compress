@@ -24,8 +24,8 @@ BuildRequires:	perl(Compress::Raw::Zlib) >= 2.021
 %endif
 Obsoletes:	perl-Compress-Zlib
 Obsoletes:	perl-IO-Compress-Base
-Obsoletes:	perl-IO-Compress-Zlib
 Obsoletes:	perl-IO-Compress-Bzip2
+Obsoletes:	perl-IO-Compress-Zlib
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
