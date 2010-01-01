@@ -22,6 +22,7 @@ BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	perl(Compress::Raw::Bzip2) >= 2.021
 BuildRequires:	perl(Compress::Raw::Zlib) >= 2.021
 %endif
+Provides:	perl-Compress-Zlib
 Obsoletes:	perl-Compress-Zlib
 Obsoletes:	perl-IO-Compress-Base
 Obsoletes:	perl-IO-Compress-Bzip2
