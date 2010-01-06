@@ -18,9 +18,11 @@ Source0:	http://search.cpan.org/CPAN/authors/id/P/PM/PMQS/%{pdir}-%{pnam}-%{vers
 URL:		http://search.cpan.org/dist/IO-Compress/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
-%if %{?with_tests}
+%if %{with tests}
 BuildRequires:	perl(Compress::Raw::Bzip2) >= 2.021
 BuildRequires:	perl(Compress::Raw::Zlib) >= 2.021
+BuildRequires:	perl(Encode)
+BuildRequires:	perl-Test-Pod
 %endif
 Provides:	perl-Compress-Zlib = %{version}
 Obsoletes:	perl-Compress-Zlib
@@ -66,6 +68,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc Changes README
 %{perl_vendorlib}/Compress/Zlib.pm
+%dir %{perl_vendorlib}/auto/Compress/Zlib
+%{perl_vendorlib}/auto/Compress/Zlib/autosplit.ix
 %{perl_vendorlib}/File/GlobMapper.pm
 %dir %{perl_vendorlib}/IO/Compress
 %{perl_vendorlib}/IO/Compress/*.pm
