@@ -8,19 +8,19 @@
 Summary:	IO::Compress - Base Class for IO::Compress modules
 Summary(pl.UTF-8):	IO::Compress - klasa bazowa dla modułów IO::Compress
 Name:		perl-IO-Compress
-Version:	2.024
+Version:	2.026
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://search.cpan.org/CPAN/authors/id/P/PM/PMQS/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	bbcdf2dff018424d5668108f5248a9dc
+# Source0-md5:	003a8207772e46cc3beb3e5ad6466eb3
 URL:		http://search.cpan.org/dist/IO-Compress/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
-BuildRequires:	perl(Compress::Raw::Bzip2) >= 2.024
-BuildRequires:	perl(Compress::Raw::Zlib) >= 2.024
+BuildRequires:	perl(Compress::Raw::Bzip2) >= %{version}
+BuildRequires:	perl(Compress::Raw::Zlib) >= %{version}
 BuildRequires:	perl(Encode)
 BuildRequires:	perl-Test-Pod
 %endif
