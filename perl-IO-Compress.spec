@@ -8,27 +8,27 @@
 Summary:	IO::Compress - Base Class for IO::Compress modules
 Summary(pl.UTF-8):	IO::Compress - klasa bazowa dla modułów IO::Compress
 Name:		perl-IO-Compress
-Version:	2.026
+Version:	2.033
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://search.cpan.org/CPAN/authors/id/P/PM/PMQS/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	003a8207772e46cc3beb3e5ad6466eb3
+Source0:	http://www.cpan.org/modules/by-module/IO/PMQS/%{pdir}-%{pnam}-%{version}.tar.gz
+# Source0-md5:	3c9091f3b76219bd79070efb7db8c877
 URL:		http://search.cpan.org/dist/IO-Compress/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
-BuildRequires:	perl(Compress::Raw::Bzip2) >= %{version}
-BuildRequires:	perl(Compress::Raw::Zlib) >= %{version}
-BuildRequires:	perl(Encode)
+BuildRequires:	perl-Compress-Raw-Bzip2 >= %{version}
+BuildRequires:	perl-Compress-Raw-Zlib >= %{version}
+BuildRequires:	perl-Encode
 BuildRequires:	perl-Test-Pod
 %endif
 Provides:	perl-Compress-Zlib = %{version}
-Obsoletes:	perl-Compress-Zlib
-Obsoletes:	perl-IO-Compress-Base
-Obsoletes:	perl-IO-Compress-Bzip2
-Obsoletes:	perl-IO-Compress-Zlib
+Obsoletes:	perl-Compress-Zlib < %{version}
+Obsoletes:	perl-IO-Compress-Base < %{version}
+Obsoletes:	perl-IO-Compress-Bzip2 < %{version}
+Obsoletes:	perl-IO-Compress-Zlib < %{version}
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -59,8 +59,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT%{perl_vendorlib}/IO/{Compress,Uncompress}/Adapter
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -68,8 +66,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc Changes README
 %{perl_vendorlib}/Compress/Zlib.pm
-%dir %{perl_vendorlib}/auto/Compress/Zlib
-%{perl_vendorlib}/auto/Compress/Zlib/autosplit.ix
 %{perl_vendorlib}/File/GlobMapper.pm
 %dir %{perl_vendorlib}/IO/Compress
 %{perl_vendorlib}/IO/Compress/*.pm
@@ -87,4 +83,7 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorlib}/IO/Uncompress/*.pm
 %dir %{perl_vendorlib}/IO/Uncompress/Adapter
 %{perl_vendorlib}/IO/Uncompress/Adapter/*.pm
-%{_mandir}/man3/*
+%{_mandir}/man3/Compress::Zlib.3pm*
+%{_mandir}/man3/File::GlobMapper.3pm*
+%{_mandir}/man3/IO::Compress*.3pm*
+%{_mandir}/man3/IO::Uncompress*.3pm*
