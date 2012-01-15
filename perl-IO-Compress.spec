@@ -8,19 +8,22 @@
 Summary:	IO::Compress - Base Class for IO::Compress modules
 Summary(pl.UTF-8):	IO::Compress - klasa bazowa dla modułów IO::Compress
 Name:		perl-IO-Compress
-Version:	2.033
+Version:	2.046
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/IO/PMQS/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	3c9091f3b76219bd79070efb7db8c877
+# Source0-md5:	3baa8d1993ff3770a8cf535ba0d6d7b4
 URL:		http://search.cpan.org/dist/IO-Compress/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
-BuildRequires:	perl-Compress-Raw-Bzip2 >= %{version}
-BuildRequires:	perl-Compress-Raw-Zlib >= %{version}
+# almost truth
+#BuildRequires:	perl-Compress-Raw-Bzip2 >= %{version}
+#BuildRequires:	perl-Compress-Raw-Zlib >= %{version}
+BuildRequires:	perl-Compress-Raw-Bzip2 >= 2.045
+BuildRequires:	perl-Compress-Raw-Zlib >= 2.045
 BuildRequires:	perl-Encode
 BuildRequires:	perl-Test-Pod
 %endif
@@ -83,6 +86,8 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorlib}/IO/Uncompress/*.pm
 %dir %{perl_vendorlib}/IO/Uncompress/Adapter
 %{perl_vendorlib}/IO/Uncompress/Adapter/*.pm
+%attr(755,root,root) %{_bindir}/zipdetails
+%{_mandir}/man1/zipdetails.1p*
 %{_mandir}/man3/Compress::Zlib.3pm*
 %{_mandir}/man3/File::GlobMapper.3pm*
 %{_mandir}/man3/IO::Compress*.3pm*
