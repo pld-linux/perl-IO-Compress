@@ -2,7 +2,6 @@
 # Conditional build:
 %bcond_without	tests		# do not perform "make test"
 #
-%include	/usr/lib/rpm/macros.perl
 %define	pdir	IO
 %define	pnam	Compress
 Summary:	IO::Compress - Base Class for IO::Compress modules
